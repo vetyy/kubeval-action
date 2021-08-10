@@ -16,6 +16,10 @@ jobs:
     - uses: actions/checkout@master
     - name: test
       uses: vetyy/kubeval-action@master
+      with:
+        ignore-missing-schemas: true
+        additional-schema-locations: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/
+
 ```
 
 By default the action will recursively scan for YAML files and validate them as Kubernetes obejcts. You can configure this with the parameters.
