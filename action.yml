@@ -37,7 +37,7 @@ inputs:
     default: ""
 runs:
   using: 'docker'
-  image: 'docker://garethr/kubeval:latest'
+  image: 'docker://vetyy/kubeval:latest'
   args:
   - --directories=${{ inputs.files }}
   - --output=${{ inputs.output }}
