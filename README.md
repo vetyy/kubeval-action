@@ -17,8 +17,8 @@ jobs:
     - name: test
       uses: vetyy/kubeval-action@master
       with:
-        ignore-missing-schemas: true
-        additional-schema-locations: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/
+        ignore_missing_schemas: true
+        additional_schema_locations: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/
 
 ```
 
