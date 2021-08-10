@@ -1,10 +1,10 @@
 name: "Kubeval"
 description: "Validate Kubernetes manifests using the upstream Schemas"
-author: "Gareth Rushgrove"
+author: "Matej Vetrak (forked from Gareth Rushgrove)"
 branding:
   icon: "check"
   color: "green"
-inputs: 
+inputs:
   files:
     description: "Files or directories to validate"
     default: "."
@@ -15,25 +15,38 @@ inputs:
     description: "Version of Kubernetes to validate against"
     default: "master"
   strict:
-    description: "Whether to not to check for extra properties" 
+    description: "Whether to not to check for extra properties"
     default: true
   openshift:
-    description: "Whether to use the schemas from OpenShift rather than Kubernetes" 
+    description: "Whether to use the schemas from OpenShift rather than Kubernetes"
     default: false
   ignore_missing_schemas:
-    description: "Whether or not to skip custom resources" 
+    description: "Whether or not to skip custom resources"
     default: true
+  ignored_path_patterns:
+    description: "List of regular expressions specifying paths to ignore"
+    default: ""
+  additional_schema_locations:
+    description: "Comma-seperated list of secondary base URLs used to download schemas"
+    default: ""
+  reject_kinds:
+    description: "Comma-separated list of case-sensitive kinds to prohibit validating against schemas"
+    default: ""
+  skip_kinds:
+    description: "Comma-separated list of case-sensitive kinds to skip when validating against schemas"
+    default: ""
 runs:
   using: 'docker'
   image: 'docker://garethr/kubeval:latest'
   args:
-  - -d
-  - ${{ inputs.files }} 
-  - -o
-  - ${{ inputs.output }}
+  - --directories=${{ inputs.files }}
+  - --output=${{ inputs.output }}
   - --strict=${{ inputs.strict }}
-  - --kubernetes-version
-  - ${{ inputs.version }}
+  - --kubernetes-version=${{ inputs.version }}
   - --openshift=${{ inputs.openshift }}
   - --ignore-missing-schemas=${{ inputs.ignore_missing_schemas }}
+  - --ignored-path-patterns=${{ inputs.ignored_path_patterns }}
+  - --additional-schema-locations=${{ inputs.additional_schema_locations }}
+  - --reject-kinds=${{ inputs.reject_kinds }}
+  - --skip-kinds=${{ inputs.skip_kinds }}
 

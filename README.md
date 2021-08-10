@@ -27,6 +27,9 @@ passed to the action using `with`.
 | output | stdout | How to format the output from Conftest (stdout, json or tap) |
 | openshift | false | Whether or not to use the OpenShift schemas rather than the upstread Kubernetes ones |
 | strict | true | Whether ot not to fail for additional properties in objects |
-| ignore_missing_schemas | true | Whether to fail if unknown resources are found |
+| ignore_missing_schemas | true | List of regular expressions specifying paths to ignore |
+| ignored_path_patterns | "" | Whether to fail if unknown resources are found |
+| additional_schema_locations | "" | Comma-seperated list of secondary base URLs used to download schemas |
+| reject_kinds | "" | Comma-separated list of case-sensitive kinds to prohibit validating against schemas |
+| skip_kinds | "" | Comma-separated list of case-sensitive kinds to skip when validating against schemas |
 | version | master | Which version of Kubernetes to validate against |
-
