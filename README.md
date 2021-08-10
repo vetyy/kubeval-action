@@ -1,6 +1,8 @@
 # Kubeval
 
-A [GitHub Action](https://github.com/features/actions) for using [Kubeval](https://github.com/instrumenta/kubeval) in your workflows.
+This is fork from https://github.com/instrumenta/kubeval adding support for new `kubeval` command line arguments.
+
+A [GitHub Action](https://github.com/features/actions) for using [Kubeval](https://github.com/vetyy/kubeval) in your workflows.
 
 You can use the action as follows:
 
