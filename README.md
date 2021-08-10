@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: test
-      uses: instrumenta/kubeval-action@master
+      uses: vetyy/kubeval-action@master
 ```
 
 By default the action will recursively scan for YAML files and validate them as Kubernetes obejcts. You can configure this with the parameters.
